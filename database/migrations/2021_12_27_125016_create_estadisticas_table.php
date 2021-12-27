@@ -19,6 +19,7 @@ class CreateEstadisticasTable extends Migration
             $table->integer('goles');
             $table->integer('asistencias');
             $table->integer('ciclo_tarjetas');
+            $table->foreignId('jugadors')->references('id')->on('jugadors')->cascadeOnDelete();
             $table->timestamps();
         });
     }
