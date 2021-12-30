@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Arbitro extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'dni',
+        'nombre',
+        'apellidos',
+        'puesto',
+        'equipo',
+    ];
+
+    public function arbitros()
+    {
+        return $this->belongsToMany(Arbitro::class);
+    }
 }

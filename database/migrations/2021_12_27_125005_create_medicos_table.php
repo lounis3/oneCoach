@@ -18,7 +18,7 @@ class CreateMedicosTable extends Migration
             $table->string('dni', 9)->unique();
             $table->string('nombre', 20);
             $table->string('apellidos', 40);
-            $table->string('puesto');
+            $table->string('puesto', 20);
             $table->foreignId('equipo')->references('id')->on('equipos')->cascadeOnDelete();
             $table->timestamps();
         });

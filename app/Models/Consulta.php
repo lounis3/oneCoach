@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Consulta extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'fecha',
+        'jugador',
+        'medico',
+    ];
+
+    public function consultas()
+    {
+        return $this->belongsToMany(Consulta::class);
+    }
 }

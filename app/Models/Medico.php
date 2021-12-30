@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Medico extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'dni',
+        'nombre',
+        'apellidos',
+        'puesto',
+        'equipo',
+    ];
+
+    public function medicos()
+    {
+        return $this->belongsToMany(Medico::class);
+    }
 }

@@ -11,7 +11,7 @@
     </div>
     <div>
 
-        @if($jugadors->isEmpty())
+        @if($jugadores->isEmpty())
             <h3>No hay jugadores en la Base de Datos</h3>
         @else
             <table class="table" border="1">
@@ -28,10 +28,11 @@
                     <th>Peso</th>
                     <th>Estado Contractual</th>
                     <th>Salario</th>
+                    <th>Equipo</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($jugadors as $jugador)
+                @foreach($jugadores as $jugador)
                     <tr>
                         <td>{!! $jugador->cod_ficha !!}</td>
                         <td>{!! $jugador->nombre !!}</td>
@@ -44,6 +45,7 @@
                         <td>{!! $jugador->peso !!}</td>
                         <td>{!! $jugador->est_contrato !!}</td>
                         <td>{!! $jugador->salario !!}</td>
+                        <td>{!! $jugador->equipo !!}</td>
                     </tr>
                 @endforeach
                 </tbody>

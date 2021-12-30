@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jugador;
 use Illuminate\Http\Request;
 
 class JugadorController extends Controller
@@ -13,7 +14,7 @@ class JugadorController extends Controller
      */
     public function index()
     {
-        return Jugador::get();
+         return Jugador::all();
     }
 
     /**
@@ -23,7 +24,7 @@ class JugadorController extends Controller
      */
     public function create()
     {
-        return view('altaJugador');
+        return view('jugador/altaJugador');
     }
 
     /**
@@ -47,9 +48,10 @@ class JugadorController extends Controller
             'peso' => 'required|decimal',
             'est_contrato' => 'required|date',
             'salario' => 'required|integer',
+            'equipo' => 'required|integer'
         ]);
         $jugadorAdd = new Jugador;
-        $jugadorAdd->dni = $request->dni;
+        $jugadorAdd->cod_ficha = $request->cod_ficha;
         $jugadorAdd->nombre = $request->nombre;
         $jugadorAdd->apellidos = $request->apellidos;
         $jugadorAdd->edad = $request->edad;
@@ -60,6 +62,7 @@ class JugadorController extends Controller
         $jugadorAdd->peso = $request->peso;
         $jugadorAdd->est_contrato = $request->est_contrato;
         $jugadorAdd->salario = $request->salario;
+        $jugadorAdd->equipo = $request->equipo;
         $jugadorAdd->save();
         return back()->with('alta', 'Jugador dado de Alta');
     }
@@ -67,22 +70,22 @@ class JugadorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Jugador $jugador
+     * @param \App\Models\Jugador $jugadore
      * @return \Illuminate\Http\Response
      */
-    public function show(Jugador $jugador)
+    public function show(Jugador $jugadore)
     {
-        $jugadors = Jugador::all();
-        return view('listadoJugadores')->with('jugadores', $jugadors);
+        $jugadores = Jugador::all();
+        return view('jugador/listadoJugadores')->with('jugadores', $jugadores);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Jugador $jugador
+     * @param \App\Models\Jugador $jugadore
      * @return \Illuminate\Http\Response
      */
-    public function edit(Jugador $jugador)
+    public function edit(Jugador $jugadore)
     {
         //
     }
@@ -91,12 +94,13 @@ class JugadorController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Jugador $jugador
+     * @param \App\Models\Jugador $jugadore
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Jugador $jugador)
+    public function update(Request $request, Jugador $jugadore)
     {
         $validator = $this->validate($request, [
+            'cod_ficha' => 'required|string|unique:jugadors',
             'nombre' => 'required|string|max:255',
             'apellidos' => 'required|string|max:255',
             'edad' => 'required|integer',
@@ -107,18 +111,19 @@ class JugadorController extends Controller
             'peso' => 'required|decimal',
             'est_contrato' => 'required|date',
             'salario' => 'required|integer',
+            'equipo' => 'required|integer',
         ]);
-        $jugador->update($request->all());
+        $jugadore->update($request->all());
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Jugador $jugador
+     * @param \App\Models\Jugador $jugadore
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jugador $jugador)
+    public function destroy(Jugador $jugadore)
     {
-        $jugador->delete();
+        $jugadore->delete();
     }
 }

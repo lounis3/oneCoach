@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
-class HomeJugadorController extends Controller
+class HomeMedicoController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -22,6 +21,6 @@ class HomeJugadorController extends Controller
      */
     public function index()
     {
-        return view('jugador/homeJugador');
+        return view('medico/homeMedico');
     }
 }

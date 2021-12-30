@@ -20,52 +20,56 @@
                         </div>
                         <div class="modal-body">
                             <form>
-                                <label>Código Ficha: <input v-model="jugador.cod_ficha" type="text" name="dni"
-                                                            placeholder="Introduzca su DNI"
-                                                            pattern="[0-9]{8}[A-Za-z]{1}" class="my-1">
+                                <label>Cod Ficha: <input v-model="jugadore.cod_ficha" type="text" name="cod_ficha"
+                                                    class="my-1">
                                     <span class="text-danger"
                                           v-if="errores.cod_ficha">{{ errores.cod_ficha[0] }}</span></label><br/>
-                                <label>Nombre: <input v-model="jugador.nombre" type="text" name="nombre"
+                                <label>Nombre: <input v-model="jugadore.nombre" type="text" name="nombre"
                                                       placeholder="Introduzca el nombre del jugador"
                                                       class="my-1">
                                     <span class="text-danger"
                                           v-if="errores.nombre">{{ errores.nombre[0] }}</span></label><br/>
-                                <label>Apellidos: <input v-model="jugador.apellidos" type="text" name="apellidos"
+                                <label>Apellidos: <input v-model="jugadore.apellidos" type="text" name="apellidos"
                                                          placeholder="Introduzca los/el apellido/s del jugador"
                                                          class="my-1">
                                     <span class="text-danger" v-if="errores.apellidos">{{ errores.apellidos[0] }}</span></label><br/>
-                                <label>Edad: <input v-model="jugador.edad" type="integer" name="edad"
-                                                    placeholder="Introduzca la edad del jugador"
-                                                    class="my-1">
+                                <label>Edad: <input v-model="jugadore.edad" type="integer" name="edad"
+                                                      placeholder="Introduzca la edad del jugador"
+                                                      class="my-1">
                                     <span class="text-danger" v-if="errores.edad">{{ errores.edad[0] }}</span></label><br/>
-                                <label>Dorsal: <input v-model="jugador.dorsal" type="integer" name="dorsal"
-                                                      placeholder="Introduzca el dorsal del jugador" class="my-1">
-                                    <span class="text-danger"
-                                          v-if="errores.dorsal">{{ errores.dorsal[0] }}</span></label><br/>
-                                <label>Posicion: <input v-model="jugador.posicion" type="text" name="posicion"
-                                                        placeholder="Introduzca la posición del jugador" class="my-1">
-                                    <span class="text-danger"
-                                          v-if="errores.posicion">{{ errores.posicion[0] }}</span></label><br/>
-                                <label>pie_dominante: <input v-model="jugador.pie_dominante" type="text" name="pie_dominante"
-                                                             placeholder="Introduzca el pie dominante del jugador" class="my-1">
-                                    <span class="text-danger"
-                                          v-if="errores.pie_dominante">{{ errores.pie_dominante[0] }}</span></label><br/>
-                                <label>Altura: <input v-model="jugador.altura" type="integer" name="altura"
-                                                      placeholder="Introduzca la altura del jugador" class="my-1">
-                                    <span class="text-danger"
-                                          v-if="errores.altura">{{ errores.altura[0] }}</span></label><br/>
-                                <label>Peso: <input v-model="jugador.peso" type="decimal" name="peso"
-                                                    placeholder="Introduzca el peso del jugador" class="my-1">
-                                    <span class="text-danger"
-                                          v-if="errores.peso">{{ errores.peso[0] }}</span></label><br/>
-                                <label>Estado Contractual: <input v-model="jugador.est_contrato" type="date" name="est_contrato"
-                                                                  placeholder="Introduzca el eatado del contrato del jugador" class="my-1">
-                                    <span class="text-danger"
-                                          v-if="errores.est_contrato">{{ errores.est_contrato[0] }}</span></label><br/>
-                                <label>Salario: <input v-model="jugador.salario" type="integer" name="salario"
-                                                       placeholder="Introduzca el salario del jugador" class="my-1">
-                                    <span class="text-danger"
-                                          v-if="errores.salario">{{ errores.salario[0] }}</span></label><br/>
+                                <label>Dorsal: <input v-model="jugadore.dorsal" type="integer" name="dorsal"
+                                                      placeholder="Introduzca el dorsal del jugador"
+                                                      class="my-1">
+                                    <span class="text-danger" v-if="errores.dorsal">{{ errores.dorsal[0] }}</span></label><br/>
+                                <label>Posición: <input v-model="jugadore.posicion" type="text" name="posicion"
+                                                      placeholder="Introduzca la posición del jugador"
+                                                      class="my-1">
+                                    <span class="text-danger" v-if="errores.posicion">{{ errores.posicion[0] }}</span></label><br/>
+                                <label>Pie Dominante: <input v-model="jugadore.pie_dominante" type="text" name="pie_dominante"
+                                                        placeholder="Introduzca el pie dominante del jugador"
+                                                        class="my-1">
+                                    <span class="text-danger" v-if="errores.pie_dominante">{{ errores.pie_dominante[0] }}</span></label><br/>
+                                <label>Altura: <input v-model="jugadore.altura" type="integer" name="altura"
+                                                        placeholder="Introduzca la altura del jugador"
+                                                        class="my-1">
+                                    <span class="text-danger" v-if="errores.altura">{{ errores.altura[0] }}</span></label><br/>
+                                <label>Peso: <input v-model="jugadore.peso" type="decimal" name="peso"
+                                                        placeholder="Introduzca el peso del jugador"
+                                                        class="my-1">
+                                    <span class="text-danger" v-if="errores.peso">{{ errores.peso[0] }}</span></label><br/>
+                                <label>Estado Contrato: <input v-model="jugadore.est_contrato" type="date" name="est_contrato"
+                                                        placeholder="Introduzca la fecha de finalizacion del contrato del jugador"
+                                                        class="my-1">
+                                    <span class="text-danger" v-if="errores.est_contrato">{{ errores.est_contrato[0] }}</span></label><br/>
+                                <label>Salario: <input v-model="jugadore.salario" type="integer" name="salario"
+                                                        placeholder="Introduzca el salario del jugador"
+                                                        class="my-1">
+                                    <span class="text-danger" v-if="errores.salario">{{ errores.salario[0] }}</span></label><br/>
+                                <label>Equipo: <input v-model="jugadore.equipo" type="integer" name="equipo"
+                                                        placeholder="Introduzca el codigo del equipo del jugador"
+                                                        class="my-1">
+                                    <span class="text-danger" v-if="errores.equipo">{{ errores.equipo[0] }}</span></label><br/>
+                                <br/>
 
 
                             </form>
@@ -89,7 +93,7 @@
                 <thead>
                 <tr class="bg-gray-50 border-b">
                     <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">#</th>
-                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">Cod Ficha</th>
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">Cod ficha</th>
                     <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">Nombre</th>
                     <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">Apellidos</th>
                     <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">Edad</th>
@@ -98,8 +102,9 @@
                     <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">Pie Dominante</th>
                     <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">Altura</th>
                     <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">Peso</th>
-                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">Estado Contractual</th>
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">Estado Contrato</th>
                     <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">Salario</th>
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">Equipo</th>
                     <th scope="col" colspan="2" class="p-1 border-r cursor-pointer text-sm font-thin text-gray-500">
                         Acción
                     </th>
@@ -107,7 +112,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="bg-gray-50 text-center" v-for="jug in jugadors" :key="jug.id">
+                <tr class="bg-gray-50 text-center" v-for="jug in jugadores" :key="jug.id">
                     <th scope="row">{{ jug.id }}</th>
                     <td class="p-2 border-r text-center">{{ jug.cod_ficha }}</td>
                     <td class="p-2 border-r text-center">{{ jug.nombre }}</td>
@@ -120,6 +125,7 @@
                     <td class="p-2 border-r text-center">{{ jug.peso }}</td>
                     <td class="p-2 border-r text-center">{{ jug.est_contrato }}</td>
                     <td class="p-2 border-r text-center">{{ jug.salario }}</td>
+                    <td class="p-2 border-r text-center">{{ jug.equipo }}</td>
                     <td>
                         <button @click="modificar=true; abrirModal(jug);" class="btn btn-warning">Editar</button>
                     </td>
@@ -139,8 +145,8 @@ export default {
     name: "Jugador.vue",
     data() {
         return {
-            jugadors: [],
-            jugador: {
+            jugadores: [],
+            jugadore: {
                 cod_ficha: '',
                 nombre: '',
                 apellidos: '',
@@ -151,7 +157,8 @@ export default {
                 altura: '',
                 peso: '',
                 est_contrato: '',
-                salario: ''
+                salario: '',
+                equipo: ''
             },
             id: 0,
             modificar: true,
@@ -162,19 +169,19 @@ export default {
     },
     methods: {
         async listar() {
-            let res = await axios.get('/jugadors');
-            this.jugadors = res.data;
+            let res = await axios.get('/jugadores');
+            this.jugadores = res.data;
         },
         async eliminar(id) {
-            let res = await axios.delete('/jugadors/' + id);
+            let res = await axios.delete('/jugadores/' + id);
             this.listar();
         },
         async guardar() {
             try {
                 if (this.modificar) {
-                    let res = await axios.put('/jugadors/' + this.id, this.jugador);
+                    let res = await axios.put('/jugadores/' + this.id, this.jugadore);
                 } else {
-                    let res = await axios.post('/jugadors', this.jugador);
+                    let res = await axios.post('/jugadores', this.jugadore);
                 }
                 this.cerrarModal();
                 this.listar();
@@ -189,31 +196,33 @@ export default {
             if (this.modificar) {
                 this.id = data.id;
                 this.tituloModal = "Modificar Jugador";
-                this.jugador.cod_ficha = data.cod_ficha;
-                this.jugador.nombre = data.nombre;
-                this.jugador.apellidos = data.apellidos;
-                this.jugador.edad = data.edad;
-                this.jugador.dorsal = data.dorsal;
-                this.jugador.posicion = data.posicion;
-                this.jugador.pie_dominante = data.pie_dominante;
-                this.jugador.altura = data.altura;
-                this.jugador.peso = data.peso;
-                this.jugador.est_contrato = data.est_contrato;
-                this.jugador.salario = data.salario;
+                this.jugadore.cod_ficha = data.cod_ficha;
+                this.jugadore.nombre = data.nombre;
+                this.jugadore.apellidos = data.apellidos;
+                this.jugadore.edad = data.edad;
+                this.jugadore.dorsal = data.dorsal;
+                this.jugadore.posicion = data.posicion;
+                this.jugadore.pie_dominante = data.pie_dominante;
+                this.jugadore.altura = data.altura;
+                this.jugadore.peso = data.peso;
+                this.jugadore.est_contrato = data.est_contrato;
+                this.jugadore.salario = data.salario;
+                this.jugadore.equipo = data.equipo;
             } else {
                 this.id = 0;
                 this.tituloModal = "Crear Jugador";
-                this.jugador.cod_ficha = '';
-                this.jugador.nombre = '';
-                this.jugador.apellidos = '';
-                this.jugador.edad = '';
-                this.jugador.dorsal = '';
-                this.jugador.posicion = '';
-                this.jugador.pie_dominante = '';
-                this.jugador.altura = '';
-                this.jugador.peso = '';
-                this.jugador.est_contrato = '';
-                this.jugador.salario = '';
+                this.jugadore.cod_ficha = '';
+                this.jugadore.nombre = '';
+                this.jugadore.apellidos = '';
+                this.jugadore.edad = '';
+                this.jugadore.dorsal = '';
+                this.jugadore.posicion = '';
+                this.jugadore.pie_dominante = '';
+                this.jugadore.altura = '';
+                this.jugadore.peso = '';
+                this.jugadore.est_contrato = '';
+                this.jugadore.salario = '';
+                this.jugadore.equipo = '';
             }
         },
         cerrarModal() {
