@@ -14,7 +14,7 @@ class JugadorController extends Controller
      */
     public function index()
     {
-         return Jugador::all();
+        return Jugador::all();
     }
 
     /**
@@ -24,7 +24,7 @@ class JugadorController extends Controller
      */
     public function create()
     {
-        return view('jugador/altaJugador');
+        //
     }
 
     /**
@@ -37,18 +37,18 @@ class JugadorController extends Controller
     {
 
         $validator = $this->validate($request, [
-            'cod_ficha' => 'required|string|unique:jugadors',
+            'cod_ficha' => 'required|string|unique:jugadors|max:255',
             'nombre' => 'required|string|max:20',
             'apellidos' => 'required|string|max:40',
             'edad' => 'required|integer',
             'dorsal' => 'required|integer',
-            'posicion' => 'required|string|max:40',
-            'pie_dominante' => 'required|string|max:40',
+            'posicion' => 'required|string|max:20',
+            'pie_dominante' => 'required|string:max:20',
             'altura' => 'required|integer',
-            'peso' => 'required|decimal',
+            'peso' => 'required',
             'est_contrato' => 'required|date',
             'salario' => 'required|integer',
-            'equipo' => 'required|integer'
+            'equipo' => 'required|integer',
         ]);
         $jugadorAdd = new Jugador;
         $jugadorAdd->cod_ficha = $request->cod_ficha;
@@ -75,8 +75,7 @@ class JugadorController extends Controller
      */
     public function show(Jugador $jugadore)
     {
-        $jugadores = Jugador::all();
-        return view('jugador/listadoJugadores')->with('jugadores', $jugadores);
+        //
     }
 
     /**
@@ -100,15 +99,15 @@ class JugadorController extends Controller
     public function update(Request $request, Jugador $jugadore)
     {
         $validator = $this->validate($request, [
-            'cod_ficha' => 'required|string|unique:jugadors',
-            'nombre' => 'required|string|max:255',
-            'apellidos' => 'required|string|max:255',
+            'cod_ficha' => 'required|string|unique:jugadors|max:255',
+            'nombre' => 'required|string|max:20',
+            'apellidos' => 'required|string|max:40',
             'edad' => 'required|integer',
             'dorsal' => 'required|integer',
-            'posicion' => 'required|string|max:40',
-            'pie_dominante' => 'required|string|max:40',
+            'posicion' => 'required|string|max:20',
+            'pie_dominante' => 'required|string:max:20',
             'altura' => 'required|integer',
-            'peso' => 'required|decimal',
+            'peso' => 'required',
             'est_contrato' => 'required|date',
             'salario' => 'required|integer',
             'equipo' => 'required|integer',

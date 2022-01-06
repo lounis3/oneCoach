@@ -7,8 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <title>{{ config('OneCoach', 'OneCoach') }}</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -21,15 +20,41 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="background-color: #e3f2fd;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('OneCoach', 'OneCoach') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">OneCoach</span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/pizarra.html') }}">Pizarra</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Gestion de Equipo
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="{{ url('/homeJugador') }}">Jugadores</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/homeEntrenador') }}">Entrenadores</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/homePartido') }}">Partidos</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/homeMedico') }}">Médicos</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/homeEstadistica') }}">Estadisticas</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/homeConsulta') }}">Consultas</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/homeArbitro') }}">Árbitros</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/homeEquipo') }}">Equipos</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">

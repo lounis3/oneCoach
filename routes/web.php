@@ -15,7 +15,8 @@ use App\Http\Controllers\EstadisticaController;
 use App\Http\Controllers\HomeEstadisticaController;
 use App\Http\Controllers\ConsultaController;
 use App\Http\Controllers\HomeConsultaController;
-
+use App\Http\Controllers\HomeEquipoController;
+use App\Http\Controllers\EquipoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,13 +28,13 @@ use App\Http\Controllers\HomeConsultaController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/homeJugador', [HomeJugadorController::class, 'index'])->name('homeJugador');
 Route::resource('/jugadores', JugadorController::class);
@@ -55,3 +56,6 @@ Route::resource('/estadisticas', EstadisticaController::class);
 
 Route::get('/homeConsulta', [HomeConsultaController::class, 'index'])->name('homeConsulta');
 Route::resource('/consultas', ConsultaController::class);
+
+Route::get('/homeEquipo', [HomeEquipoController::class, 'index'])->name('homeEquipo');
+Route::resource('equipos', EquipoController::class);

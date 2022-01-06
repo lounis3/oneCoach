@@ -131,7 +131,9 @@
                     </td>
                     <td>
                         <button @click="eliminar(jug.id)" class="btn btn-danger">Eliminar</button>
-
+                    </td>
+                    <td>
+                        <button @click="mostrarStats(jug.id)" class="btn btn-info">Estadisticas</button>
                     </td>
                 </tr>
                 </tbody>
@@ -191,6 +193,10 @@ export default {
                 }
             }
         },
+        async mostrarStats(id) {
+            let res = await axios.get('/estadisticas/' + id);
+            this.estadistica = res.data;
+            },
         abrirModal(data = {}) {
             this.modal = 1;
             if (this.modificar) {

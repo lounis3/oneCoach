@@ -23,7 +23,7 @@ class Jugador extends Model
         'equipo',
     ];
 
-    public function jugadores()
+    public function jugadors()
     {
         return $this->belongsToMany(Jugador::class);
     }

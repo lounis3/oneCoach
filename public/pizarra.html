@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center; font-family: 'Nunito', sans-serif;" ><a href="index.php" style="color: #0f5132"><span>Pizarra</span></a></h1>
+    <div>
+        <canvas id="canvasPizarra" width="1000px" height="625px" style="border: 1px solid black;margin-left: 10%"></canvas><br>
+    </div>
+    <div style="align-content: center">
+        <input type="color" id="color" oninput="defcolor(this.value);">
+        <input type="range" id="grosor" oninput="defgrosor(this.value);" min="1" max="5" value="2">
+    </div>
+
+
+</body>
+</html>
+
+<script>
+    var canvas = document.getElementById('canvasPizarra');
+    var ctx = canvas.getContext('2d');
+    var rect = canvas.getBoundingClientRect();
+    var x = 0, y = 0;
+    var dibujando = false;
+    var color = 'black';
+    var grosor = 1;
+
+    var img = new Image();
+    img.src = "pizarra.jpg";
+    img.onload = function(){
+        ctx.drawImage(img, 0, 0);
+    }
+
+    function defcolor(c) {
+        color = c;
+    }
+
+    function defgrosor(g) {
+        grosor = g;
+    }
+
+    canvas.addEventListener('mousedown', function(e) {
+        x = e.clientX - rect.left;
+        y = e.clientY - rect.top;
+        dibujando = true;
+    });
+
+    canvas.addEventListener('mousemove', function (e) {
+        if (dibujando === true) {
+            dibujar(x, y, e.clientX - rect.left, e.clientY - rect.top);
+            x = e.clientX - rect.left;
+            y = e.clientY - rect.top;
+        }
+    });
+
+    canvas.addEventListener('mouseup', function (e) {
+        if (dibujando === true) {
+            dibujar(x, y, e.clientX - rect.left, e.clientY - rect.top);
+            x = 0;
+            y = 0;
+            dibujando = false;
+        }
+    });
+
+    function dibujar(x1, y1, x2, y2) {
+        ctx.beginPath();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = grosor;
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+        ctx.closePath();
+    }
+</script>
