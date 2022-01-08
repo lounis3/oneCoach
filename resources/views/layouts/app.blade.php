@@ -50,6 +50,7 @@
                                     <li><a class="dropdown-item" href="{{ url('/homeConsulta') }}">Consultas</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/homeArbitro') }}">Árbitros</a></li>
                                     <li><a class="dropdown-item" href="{{ url('/homeEquipo') }}">Equipos</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/homeIncidencia') }}">Incidencias</a></li>
                                 </ul>
                             </li>
                         </ul>

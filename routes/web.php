@@ -17,6 +17,8 @@ use App\Http\Controllers\ConsultaController;
 use App\Http\Controllers\HomeConsultaController;
 use App\Http\Controllers\HomeEquipoController;
 use App\Http\Controllers\EquipoController;
+use App\Http\Controllers\IncidenciaController;
+use App\Http\Controllers\HomeIncidenciaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,3 +61,6 @@ Route::resource('/consultas', ConsultaController::class);
 
 Route::get('/homeEquipo', [HomeEquipoController::class, 'index'])->name('homeEquipo');
 Route::resource('equipos', EquipoController::class);
+
+Route::get('/homeIncidencia', [HomeIncidenciaController::class, 'index'])->name('homeIncidencia');
+Route::resource('/incidencias', IncidenciaController::class);
